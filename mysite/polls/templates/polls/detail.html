@@ -10,3 +10,11 @@
 {% endfor %}
 <input type="submit" value="Vote" />
 </form>
+
+{% for comment in question.comment_set.all %}
+    {{ comment.created_date }}
+    by {{ comment.author }}
+    <p>{{ comment.text }}</p>
+{% empty %}
+    <p>No comments here question yet.</p>
+{% endfor %}
