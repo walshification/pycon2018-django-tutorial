@@ -14,7 +14,9 @@
 {% for comment in question.comment_set.all %}
     {{ comment.created_date }}
     by {{ comment.author }}
-    <p>{{ comment.text }}</p>
+    <p>{{ comment.text|linebreaks }}</p>
 {% empty %}
     <p>No comments here question yet.</p>
 {% endfor %}
+
+<a href='{% url "polls:add_comment" question.id %}'>Add Comment</a>
